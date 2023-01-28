@@ -1,0 +1,84 @@
+:root {
+    --pri-col: rgba(243,193,2,1);
+    --sec-col: rgba(221,0,41,1);
+    --ter-col: rgba(49,109,179,1);
+    --qer-col: rgba(0,169,158,1);
+    --pri-col-t: rgba(243,193,2,0.25);
+    --sec-col-t: rgba(221,0,41,0.25);
+    --ter-col-t: rgba(49,109,179,0.25);
+    --qer-col-t: rgba(0,169,158,1,0.25);
+
+    --title-time: 5s;
+    --title-bloom: 100px;
+}
+
+@font-face {
+    font-family: korolev;
+    src: url("../fonts/korolev.otf");
+}
+
+@keyframes gradient {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+@keyframes textshadow {
+    0% {
+        text-shadow: 10px 10px white, 0px 0px var(--title-bloom) rgb(243,193,2);
+    }
+    16% {
+        text-shadow: 10px 10px white, 0px 0px var(--title-bloom) rgb(221,0,41);
+    }
+    34% {
+        text-shadow: 10px 10px white, 0px 0px var(--title-bloom) rgb(49,109,179);
+    }
+    50% {
+        text-shadow: 10px 10px white, 0px 0px var(--title-bloom) rgb(0,169,158);
+    }
+    66% {
+        text-shadow: 10px 10px white, 0px 0px var(--title-bloom) rgb(49,109,179);
+    }
+    84% {
+        text-shadow: 10px 10px white, 0px 0px var(--title-bloom) rgb(221,0,41);
+    }
+    100% {
+        text-shadow: 10px 10px white, 0px 0px var(--title-bloom) rgb(243,193,2);
+    }
+}
+
+@keyframes fadein {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+}
+
+@keyframes fadeout{
+    from {opacity: 1;}
+    to {opacity: 0;}
+}
+
+#html{
+    height: 100%;
+    width: 100%;
+}
+
+.grad-title{
+    position: absolute;
+    left: 20%;
+    top: 40%;
+    font-family: korolev;
+    font-size: 72px;
+    background: linear-gradient(60deg, var(--pri-col), var(--sec-col), var(--ter-col), var(--qer-col));
+    -webkit-background-clip: text;
+    text-align: center;
+    background-clip: text;
+    color: transparent;
+    background-size: 600% 600%;
+    animation: gradient var(--title-time) ease infinite, fadein 2s, textshadow var(--title-time) ease infinite;
+}
