@@ -10,7 +10,12 @@
 
     --title-time: 5s;
     --title-bloom: 100px;
-    --guest-time: 10s;
+
+    --guest-time: 2.5s;
+    --guest-box-shadow: 15px;
+    --guest-tab-time: 1s;
+    --guest-show-time: 0.5s;
+    --guest-bg-size: 150%;
 }
 
 @font-face {
@@ -65,8 +70,13 @@
 }
 
 @keyframes fadeout{
-    from {opacity: 1;}
-    to {opacity: 0;}
+    from { opacity: 1; }
+    to   { opacity: 0; }
+}
+
+@keyframes tabpopup {
+    from { top: 0px; opacity: 0;  box-shadow: var(--guest-box-shadow) var(--guest-box-shadow) 10px rgba(255,255,255,0);}
+    to  { top: -112px; opacity: 1; box-shadow: var(--guest-box-shadow) var(--guest-box-shadow) 10px rgba(255,255,255,0.5);}
 }
 
 #html{
@@ -90,28 +100,42 @@
 }
 
 .guest-card{
+    box-sizing: border-box;
+}
+
+#guest-info h1{
     position: absolute;
+    top: 0px;
+    opacity: 0;
+    box-shadow: var(--guest-box-shadow) var(--guest-box-shadow) 10px rgba(255,255,255,0);
+    padding: 10px;
+    right: 0px;
+    left: 50%;
+    text-align: center;
+    text-shadow: 5px 5px rgba(255,255,255,0.75);
+    background: linear-gradient(75deg, var(--sec-col), var(--ter-col));
+    background-size: var(--guest-bg-size) var(--guest-bg-size);
+    border-radius: 15px 15px 0px 0px;
+    z-index: -1;
+    animation: tabpopup var(--guest-tab-time), gradient var(--guest-time) ease infinite;
+    animation-fill-mode: forwards;
+    animation-delay: var(--guest-show-time);
+}
+
+#guest-info{
+    position: relative;
     font-family: orbitron;
     font-size: 24px;
     color: black;
-    text-shadow: 2px 2px rgba(255,255,255,0.5);
     width: 30%;
-    background: linear-gradient(75deg, var(--sec-col), var(--ter-col));
-    background-size: 300% 300%;
-    animation:  gradient var(--guest-time) ease infinite;
-    z-index: 1;
-    box-shadow: 20px 5px 5px rgba(255,255,255,0.5);
-    border-radius: 15px 15px 0px 0px;
-}
-
-.guest-card-second{
-    position: absolute;
-    height: 100%;
-    width: 100%;
+    margin: 50% 80% 50% 20%;
+    padding: 10px;
+    text-shadow: 3px 3px rgba(255,255,255,0.25);
     background: linear-gradient(60deg, var(--pri-col), var(--qer-col));
-    background-size: 300% 300%;
-    animation:  gradient var(--guest-time) ease infinite;
-    z-index: 2;
+    background-size: var(--guest-bg-size) var(--guest-bg-size);
+    border-radius: 15px 0px 15px 15px;
+    box-shadow: var(--guest-box-shadow) var(--guest-box-shadow) 10px rgba(255,255,255,0.5); 
+    animation: fadein var(--guest-show-time), gradient var(--guest-time) ease infinite;
 }
 
 .guest-image{
