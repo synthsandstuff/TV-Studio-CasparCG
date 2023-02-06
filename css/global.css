@@ -10,11 +10,17 @@
 
     --title-time: 5s;
     --title-bloom: 100px;
+    --guest-time: 10s;
 }
 
 @font-face {
     font-family: korolev;
     src: url("../fonts/korolev.otf");
+}
+
+@font-face {
+    font-family: orbitron;
+    src: url("../fonts/static/Orbitron-Regular.ttf");
 }
 
 @keyframes gradient {
@@ -81,4 +87,22 @@
     color: transparent;
     background-size: 600% 600%;
     animation: gradient var(--title-time) ease infinite, fadein 2s, textshadow var(--title-time) ease infinite;
+}
+
+.guest-card{
+    position: absolute;
+    font-family: orbitron;
+    font-size: 24px;
+    color: black;
+    text-shadow: 2px 2px rgba(255,255,255,0.5);
+    width: 30%;
+    height: 80%;
+    background: linear-gradient(75deg, var(--pri-col), var(--sec-col), var(--ter-col), var(--qer-col));
+    background-size: 300% 300%;
+    animation:  gradient var(--guest-time) ease infinite;
+}
+
+.guest-image{
+    width: 30%;
+    height: 80%;
 }
