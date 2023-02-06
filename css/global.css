@@ -79,9 +79,31 @@
     to  { top: -112px; opacity: 1; box-shadow: var(--guest-box-shadow) var(--guest-box-shadow) 10px rgba(255,255,255,0.5);}
 }
 
+@keyframes titlesscroll {
+    from { top: -1300px;}
+    to { top: 1500;}
+}
+
 #html{
     height: 100%;
     width: 100%;
+}
+
+.titles{
+    position: absolute;
+    font-size: 48px;
+    height: 100%;
+    width: 100%;
+    font-family: orbitron;
+    text-shadow: 3px 3px rgba(255,255,255,1);
+    background: linear-gradient(60deg, var(--pri-col), var(--sec-col), var(--ter-col), var(--qer-col));
+    background-size: 200% 200%;
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    text-align: center;
+    overflow: visible;
+    animation: gradient var(--title-time) ease infinite, titlesscroll 5s;
 }
 
 .grad-title{
