@@ -81,7 +81,7 @@
 
 @keyframes titlesscroll {
     from { top: -1300px;}
-    to { top: 1500;}
+    to { top: 1500px;}
 }
 
 #html{
@@ -95,23 +95,20 @@
     height: 100%;
     width: 100%;
     font-family: orbitron;
-    text-shadow: 3px 3px rgba(255,255,255,1);
-    background: linear-gradient(60deg, var(--pri-col), var(--sec-col), var(--ter-col), var(--qer-col));
-    background-size: 200% 200%;
-    -webkit-background-clip: text;
-    background-clip: text;
-    color: transparent;
+    color: rgb(255,255,255);
     text-align: center;
     overflow: visible;
-    animation: gradient var(--title-time) ease infinite, titlesscroll 5s;
+    animation: gradient var(--title-time) ease infinite, titlesscroll 10s linear;
+    animation-fill-mode: forwards;
 }
 
 .grad-title{
     position: absolute;
-    left: 20%;
+    display: inline;
+    left: 12.5%;
     top: 40%;
     font-family: korolev;
-    font-size: 72px;
+    font-size: 60px;
     background: linear-gradient(60deg, var(--pri-col), var(--sec-col), var(--ter-col), var(--qer-col));
     -webkit-background-clip: text;
     text-align: center;
@@ -150,7 +147,7 @@
     font-size: 24px;
     color: black;
     width: 30%;
-    margin: 50% 80% 50% 20%;
+    margin: 20% 85% 50% 15%;
     padding: 10px;
     text-shadow: 3px 3px rgba(255,255,255,0.25);
     background: linear-gradient(60deg, var(--pri-col), var(--qer-col));
