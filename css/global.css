@@ -18,6 +18,22 @@
     --guest-bg-size: 150%;
 }
 
+#guest-info::-webkit-scrollbar {
+    display: none;
+}
+
+.titles::-webkit-scrollbar {
+    display: none;
+}
+
+ul {
+    list-style-type: none;
+}
+
+li {
+    padding-top: 1%;
+}
+
 @font-face {
     font-family: korolev;
     src: url("../fonts/korolev.otf");
@@ -25,7 +41,7 @@
 
 @font-face {
     font-family: orbitron;
-    src: url("../fonts/static/Orbitron-Regular.ttf");
+    src: url("../fonts/static/Orbitron-SemiBold.ttf");
 }
 
 @keyframes gradient {
@@ -76,36 +92,37 @@
 
 @keyframes tabpopup {
     from { top: 0px; opacity: 0;  box-shadow: var(--guest-box-shadow) var(--guest-box-shadow) 10px rgba(255,255,255,0);}
-    to  { top: -112px; opacity: 1; box-shadow: var(--guest-box-shadow) var(--guest-box-shadow) 10px rgba(255,255,255,0.5);}
+    to  { top: -158px; opacity: 1; box-shadow: var(--guest-box-shadow) var(--guest-box-shadow) 10px rgba(255,255,255,0.5);}
 }
 
 @keyframes titlesscroll {
-    from { top: -1300px;}
-    to { top: 1500px;}
+    from { top: 1500px;}
+    to { top: -1300px;}
 }
 
 #html{
-    height: 100%;
-    width: 100%;
+    overflow: hidden;
+    height: 1080px;
+    width: 1920px;
 }
 
 .titles{
     position: absolute;
+    margin-left: 17%;
     font-size: 48px;
-    height: 100%;
-    width: 100%;
     font-family: orbitron;
     color: rgb(255,255,255);
     text-align: center;
-    overflow: visible;
+    overflow: hidden;
     animation: gradient var(--title-time) ease infinite, titlesscroll 10s linear;
     animation-fill-mode: forwards;
+    scrollbar-width: none;
 }
 
 .grad-title{
     position: absolute;
     display: inline;
-    left: 12.5%;
+    left: 15%;
     top: 40%;
     font-family: korolev;
     font-size: 60px;
@@ -124,12 +141,12 @@
 
 #guest-info h1{
     position: absolute;
-    top: 0px;
+    top: 15px;
     opacity: 0;
     box-shadow: var(--guest-box-shadow) var(--guest-box-shadow) 10px rgba(255,255,255,0);
     padding: 10px;
-    right: 0px;
-    left: 50%;
+    right: 50%;
+    left: 0px;
     text-align: center;
     text-shadow: 5px 5px rgba(255,255,255,0.75);
     background: linear-gradient(75deg, var(--sec-col), var(--ter-col));
@@ -144,15 +161,18 @@
 #guest-info{
     position: relative;
     font-family: orbitron;
-    font-size: 24px;
+    font-size: 36px;
     color: black;
     width: 30%;
-    margin: 20% 85% 50% 15%;
     padding: 10px;
+    left: 3%;
+    bottom: 30px;
+    list-style-type: none;
+    scrollbar-width: none;
     text-shadow: 3px 3px rgba(255,255,255,0.25);
     background: linear-gradient(60deg, var(--pri-col), var(--qer-col));
     background-size: var(--guest-bg-size) var(--guest-bg-size);
-    border-radius: 15px 0px 15px 15px;
+    border-radius: 0px 15px 15px 15px;
     box-shadow: var(--guest-box-shadow) var(--guest-box-shadow) 10px rgba(255,255,255,0.5); 
     animation: fadein var(--guest-show-time), gradient var(--guest-time) ease infinite;
 }
