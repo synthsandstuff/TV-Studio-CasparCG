@@ -159,14 +159,14 @@ li {
 }
 
 #guest-info{
-    position: relative;
+    position: absolute;
     font-family: orbitron;
     font-size: 36px;
     color: black;
     width: 30%;
     padding: 10px;
     left: 3%;
-    bottom: 30px;
+    bottom: 5%;
     list-style-type: none;
     scrollbar-width: none;
     text-shadow: 3px 3px rgba(255,255,255,0.25);
