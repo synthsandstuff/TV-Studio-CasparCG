@@ -97,7 +97,7 @@ li {
 
 @keyframes titlesscroll {
     from { top: 1500px;}
-    to { top: -1300px;}
+    to { top: -2000px;}
 }
 
 #html{
@@ -109,11 +109,12 @@ li {
 .titles{
     position: absolute;
     margin-left: 17%;
-    font-size: 48px;
+    font-size: 56px;
     font-family: orbitron;
     color: rgb(255,255,255);
     text-align: center;
     overflow: hidden;
+    scroll-behavior: smooth;
     animation: gradient var(--title-time) ease infinite, titlesscroll 10s linear;
     animation-fill-mode: forwards;
     scrollbar-width: none;
