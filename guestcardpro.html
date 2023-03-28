@@ -1,7 +1,57 @@
 <!DOCTYPE html>
 <html>
     <link rel="stylesheet" href="css/global.css"/>
-    <script src="./js/webcg-framework.umd.js"></script>
+    <script src="webcg-framework.umd.js"></script>
+    <style type="text/css">
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to   { opacity: 1; }
+        }
+
+        @keyframes fadeOut{
+            from { opacity: 1; }
+            to   { opacity: 0; }
+        }
+
+        .intro{
+            animation-duration: var(--guest-show-time);
+            animation-name: fadeIn;
+            animation-fill-mode: both;
+            animation-timing-function: ease-in-out;
+        }
+
+        .outro{
+            animation-duration: var(--guest-show-time);
+            animation-name: fadeOut;
+            animation-fill-mode: both;
+            animation-timing-function: ease-in-out;
+        }
+    </style>
+    <script type="text/javascript">
+        webcg.on('play', function () {
+          const overlay = document.querySelector('.guest-card')
+          // Swap intro and outro classes
+          overlay.classList.add('intro')
+          overlay.classList.remove('outro')
+          // Return promise that is resolved when the animation is over. WebCG will wait for this promise.
+          return new Promise(resolve => {
+            // Add the animationend event listener once
+            overlay.addEventListener('animationend', resolve, { once: true })
+          })
+        })
+    
+        webcg.on('stop', function () {
+          const overlay = document.querySelector('.guest-card')
+          // Swap intro and outro classes
+          overlay.classList.remove('intro')
+          overlay.classList.add('outro')
+          // Return promise that is resolved when the animation is over. WebCG will wait for this promise.
+          return new Promise(resolve => {
+            // Add the animationend event listener once
+            overlay.addEventListener('animationend', resolve, { once: true })
+          })
+        })
+    </script>
     <header class="guest-card">
         <div id="guest-info">
             <h1>

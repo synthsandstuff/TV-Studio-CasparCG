@@ -8,6 +8,9 @@
     --ter-col-t: rgba(49,109,179,0.25);
     --qer-col-t: rgba(0,169,158,1,0.25);
 
+    --team-col1: rgba(142,0,178,1);
+    --team-col2: rgba(0,178,0,1);
+
     --title-time: 5s;
     --title-bloom: 100px;
 
@@ -58,25 +61,25 @@ li {
 
 @keyframes textshadow {
     0% {
-        text-shadow: 10px 10px white, 0px 0px var(--title-bloom) rgb(243,193,2);
+        text-shadow: 25px 25px white, 0px 0px var(--title-bloom) rgb(243,193,2);
     }
     16% {
-        text-shadow: 10px 10px white, 0px 0px var(--title-bloom) rgb(221,0,41);
+        text-shadow: 25px 25px white, 0px 0px var(--title-bloom) rgb(221,0,41);
     }
     34% {
-        text-shadow: 10px 10px white, 0px 0px var(--title-bloom) rgb(49,109,179);
+        text-shadow: 25px 25px white, 0px 0px var(--title-bloom) rgb(49,109,179);
     }
     50% {
-        text-shadow: 10px 10px white, 0px 0px var(--title-bloom) rgb(0,169,158);
+        text-shadow: 25px 25px white, 0px 0px var(--title-bloom) rgb(0,169,158);
     }
     66% {
-        text-shadow: 10px 10px white, 0px 0px var(--title-bloom) rgb(49,109,179);
+        text-shadow: 25px 25px white, 0px 0px var(--title-bloom) rgb(49,109,179);
     }
     84% {
-        text-shadow: 10px 10px white, 0px 0px var(--title-bloom) rgb(221,0,41);
+        text-shadow: 25px 25px white, 0px 0px var(--title-bloom) rgb(221,0,41);
     }
     100% {
-        text-shadow: 10px 10px white, 0px 0px var(--title-bloom) rgb(243,193,2);
+        text-shadow: 25px 25px white, 0px 0px var(--title-bloom) rgb(243,193,2);
     }
 }
 
@@ -97,7 +100,7 @@ li {
 
 @keyframes titlesscroll {
     from { top: 1500px;}
-    to { top: -2000px;}
+    to { top: -4500px;}
 }
 
 #html{
@@ -109,7 +112,7 @@ li {
 .titles{
     position: absolute;
     margin-left: 17%;
-    font-size: 56px;
+    font-size: 72px;
     font-family: orbitron;
     color: rgb(255,255,255);
     text-align: center;
@@ -120,24 +123,31 @@ li {
     scrollbar-width: none;
 }
 
+.title-backg{
+    background: linear-gradient(60deg, var(--team-col1), var(--team-col2));
+    background-size: 200% 200%;
+    animation: gradient var(--title-time) ease infinite;
+}
+
 .grad-title{
     position: absolute;
     display: inline;
-    left: 15%;
-    top: 40%;
+    left: 0%;
+    top: 20%;
     font-family: korolev;
-    font-size: 60px;
+    font-size: 96px;
     background: linear-gradient(60deg, var(--pri-col), var(--sec-col), var(--ter-col), var(--qer-col));
     -webkit-background-clip: text;
     text-align: center;
     background-clip: text;
     color: transparent;
     background-size: 600% 600%;
-    animation: gradient var(--title-time) ease infinite, fadein 2s, textshadow var(--title-time) ease infinite;
+    animation: gradient var(--title-time) ease infinite, fadein 5s, textshadow var(--title-time) ease infinite;
 }
 
 .guest-card{
     box-sizing: border-box;
+    opacity: 0;
 }
 
 #guest-info h1{
@@ -175,7 +185,21 @@ li {
     background-size: var(--guest-bg-size) var(--guest-bg-size);
     border-radius: 0px 15px 15px 15px;
     box-shadow: var(--guest-box-shadow) var(--guest-box-shadow) 10px rgba(255,255,255,0.5); 
-    animation: fadein var(--guest-show-time), gradient var(--guest-time) ease infinite;
+    animation: gradient var(--guest-time) ease infinite;
+}
+
+.intro{
+    animation-duration: var(--guest-show-time);
+    animation-name: fadein;
+    animation-fill-mode: both;
+    animation-timing-function: ease-in-out;
+}
+
+.outro{
+    animation-duration: var(--guest-show-time);
+    animation-name: fadeout;
+    animation-fill-mode: both;
+    animation-timing-function: ease-in-out;
 }
 
 .guest-image{
